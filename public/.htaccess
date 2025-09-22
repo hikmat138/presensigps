@@ -5,6 +5,9 @@
 
     RewriteEngine On
 
+    # Base path (penting kalau domain/subdomain bukan di root)
+    RewriteBase /
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
@@ -18,8 +21,18 @@
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Send Requests To Front Controller...
+    # Send Requests To Front Controller (index.php)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# Protection untuk direktori sensitif
+<IfModule mod_headers.c>
+    <FilesMatch "\.(env|env.example|gitignore|gitattributes|log|sql|sqlite|pem|key)$">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes

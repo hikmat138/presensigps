@@ -47,6 +47,7 @@ Route ::middleware(['guest:user'])->group(function () {
 });
     Route ::POST('panel/prosesloginadmin', [App\Http\Controllers\AuthController::class, 'prosesloginadmin'])->name('prosesloginadmin');
 
+<<<<<<< HEAD
 Route ::middleware(['auth:user'])->group(function () {
     Route::get('/panel/dashboardadmin', [App\Http\Controllers\DashboardController::class, 'dashboardadmin'])->name('dashboardadmin');
     Route ::get('/panel/proseslogoutadmin', [App\Http\Controllers\AuthController::class, 'logoutadmin'])->name('proseslogoutadmin');
@@ -76,6 +77,37 @@ Route ::middleware(['auth:user'])->group(function () {
     Route::get('{id}/bataldinas', [App\Http\Controllers\karyawanController::class, 'bataldinas']);
     Route::get('/konfirmasiubah', [App\Http\Controllers\karyawanController::class, 'konfirmasiubah']);
     Route::post('/resetpassword/{nik}', [App\Http\Controllers\karyawanController::class, 'resetPassword']);
+=======
+route ::middleware(['auth:user'])->group(function () {
+    route::get('/panel/dashboardadmin', [App\Http\Controllers\DashboardController::class, 'dashboardadmin'])->name('dashboardadmin');
+    route ::get('/panel/proseslogoutadmin', [App\Http\Controllers\AuthController::class, 'logoutadmin'])->name('proseslogoutadmin');
+    route :: get('/karyawan', [App\Http\Controllers\karyawanController::class, 'index']);
+    route :: POST('/karyawan/store', [App\Http\Controllers\karyawanController::class,'store'])->name('store');
+    route::get('/profiladmin', [App\Http\Controllers\KaryawanController::class, 'profil'])->name('profiladmin');
+    route::get('/editprofiladmin', [App\Http\Controllers\KaryawanController::class, 'editprofil'])->name('editprofiladmin');
+    route::POST('/updateprofiladmin', [App\Http\Controllers\KaryawanController::class, 'updateprofil'])->name('updateprofiladmin');
+    route::POST('/karyawan/edit', [App\Http\Controllers\KaryawanController::class, 'edit'])->name('karyawan.edit');
+    route::POST('/karyawan/{nik}/update', [App\Http\Controllers\KaryawanController::class, 'update'])->name('karyawan.update');
+    route::POST('/karyawan/{nik}/delete', [App\Http\Controllers\KaryawanController::class, 'destroy'])->name('karyawan.destroy');
+    route :: get('/jadwalkaryawan', [App\Http\Controllers\karyawanController::class, 'jadwal']);
+    route::POST('/jadwal/update/{id}', [App\Http\Controllers\karyawanController::class, 'updateJam']);
+    route::get('/monitoring', [App\Http\Controllers\karyawanController::class, 'monitoring']);
+    route::get('/monitoringbulanan', [App\Http\Controllers\karyawanController::class, 'monitoringbulanan']);
+    route::POST('/getpresensi', [App\Http\Controllers\karyawanController::class, 'getpresensi']);
+    route::POST('/getbulanan', [App\Http\Controllers\karyawanController::class, 'getbulanan']);
+    route::POST('/libur/store', [App\Http\Controllers\KaryawanController::class, 'storelibur'])->name('libur.store');
+    route::DELETE('/libur/{id}', [App\Http\Controllers\KaryawanController::class, 'destroylibur'])->name('libur.destroy');
+    route::POST('/updatelokasi', [App\Http\Controllers\karyawanController::class, 'updatelokasi']);
+    route::get('/aturlokasi', [App\Http\Controllers\karyawanController::class, 'lokasi']);
+    route::get('/konfirmasiizin', [App\Http\Controllers\karyawanController::class, 'konfirmasiizin']);
+    route::POST('/aprovedizin', [App\Http\Controllers\karyawanController::class, 'aprovedizin']);
+    route::get('{id}/batal', [App\Http\Controllers\karyawanController::class, 'batalizin']);
+    route::get('/konfirmasidinas', [App\Http\Controllers\karyawanController::class, 'konfirmasidinas']);
+    route::POST('/aproveddinas', [App\Http\Controllers\karyawanController::class, 'aproveddinas']);
+    route::get('{id}/bataldinas', [App\Http\Controllers\karyawanController::class, 'bataldinas']);
+    route::get('/konfirmasiubah', [App\Http\Controllers\karyawanController::class, 'konfirmasiubah']);
+    route::post('/resetpassword{nik}', [App\Http\Controllers\karyawanController::class, 'resetPassword']);
+>>>>>>> ff3fc45 (update htaccess dan index.php)
     
 });
 
