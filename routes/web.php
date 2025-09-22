@@ -6,7 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KaryawanController;
 use Maatwebsite\Excel\Facades\Excel;
 
-// ==================== Pegawai Guest ====================
+
 Route::middleware(['guest:pegawai'])->group(function () {
     Route::get('/', function () {
         return view('login');
@@ -16,10 +16,10 @@ Route::middleware(['guest:pegawai'])->group(function () {
     Route::post('/prosesreset', [DashboardController::class, 'prosesreset']);
 });
 
-// Login pegawai
+
 Route::post('/proseslogin', [AuthController::class, 'proseslogin'])->name('proseslogin');
 
-// ==================== Pegawai Auth ====================
+
 Route::middleware(['auth:pegawai'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');   
     Route::post('/proseslogout', [AuthController::class, 'logout'])->name('proseslogout');
@@ -47,17 +47,17 @@ Route::middleware(['auth:pegawai'])->group(function () {
     Route::get('/pengaturanuser', [DashboardController::class, 'pengaturan'])->name('pengaturan');
 });
 
-// ==================== Admin Guest ====================
+
 Route::middleware(['guest:user'])->group(function () {
     Route::get('/panel', function () {
         return view('loginadmin');
     })->name('loginadmin');
 });
 
-// Login admin
+
 Route::post('panel/prosesloginadmin', [AuthController::class, 'prosesloginadmin'])->name('prosesloginadmin');
 
-// ==================== Admin Auth ====================
+
 Route::middleware(['auth:user'])->group(function () {
     Route::get('/panel/dashboardadmin', [DashboardController::class, 'dashboardadmin'])->name('dashboardadmin');
     Route::get('/panel/proseslogoutadmin', [AuthController::class, 'logoutadmin'])->name('proseslogoutadmin');
