@@ -75,7 +75,7 @@ route ::middleware(['auth:user'])->group(function () {
     route::POST('/aproveddinas', [App\Http\Controllers\karyawanController::class, 'aproveddinas']);
     route::get('{id}/bataldinas', [App\Http\Controllers\karyawanController::class, 'bataldinas']);
     route::get('/konfirmasiubah', [App\Http\Controllers\karyawanController::class, 'konfirmasiubah']);
-    route::post('/resetpassword{nik}', [App\Http\Controllers\karyawanController::class, 'resetPassword']);
+    route::post('/resetpassword/{nik}', [App\Http\Controllers\karyawanController::class, 'resetPassword']);
     
 });
 
