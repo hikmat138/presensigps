@@ -52,9 +52,9 @@ Route ::middleware(['auth:user'])->group(function () {
     Route ::get('/panel/proseslogoutadmin', [App\Http\Controllers\AuthController::class, 'logoutadmin'])->name('proseslogoutadmin');
     Route :: get('/karyawan', [App\Http\Controllers\karyawanController::class, 'index']);
     Route :: POST('/karyawan/store', [App\Http\Controllers\karyawanController::class,'store'])->name('store');
-    Route::get('/profiladmin', [App\Http\Controllers\KaryawanController::class, 'profil'])->name('profil');
-    Route::get('/editprofiladmin', [App\Http\Controllers\KaryawanController::class, 'editprofil'])->name('editprofil');
-    Route::POST('/updateprofiladmin', [App\Http\Controllers\KaryawanController::class, 'updateprofil'])->name('updateprofil');
+    Route::get('/profiladmin', [App\Http\Controllers\KaryawanController::class, 'profil'])->name('profiladmin');
+    Route::get('/editprofiladmin', [App\Http\Controllers\KaryawanController::class, 'editprofil'])->name('editprofiladmin');
+    Route::POST('/updateprofiladmin', [App\Http\Controllers\KaryawanController::class, 'updateprofil'])->name('updateprofiladmin');
     Route::POST('/karyawan/edit', [App\Http\Controllers\KaryawanController::class, 'edit'])->name('karyawan.edit');
     Route::POST('/karyawan/{nik}/update', [App\Http\Controllers\KaryawanController::class, 'update'])->name('karyawan.update');
     Route::POST('/karyawan/{nik}/delete', [App\Http\Controllers\KaryawanController::class, 'destroy'])->name('karyawan.destroy');
